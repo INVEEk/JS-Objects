@@ -13,8 +13,6 @@ function checkIfPropertyIsDefined(object, property) {
     return user.hasOwnProperty(property);
 }
 
-
-
 console.log(checkIfPropertyIsDefined(user, 'firstName')); // true
 console.log(checkIfPropertyIsDefined(user, 'height')); // false
 
