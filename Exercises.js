@@ -20,8 +20,8 @@ const firstUser = {
     age: undefined,
 }
 
-function checkIfPropertyIsDefined(someObject, property) {
-    return someObject[property] !== undefined;
+function checkIfPropertyIsDefined(object, property) {
+    return object[property] !== undefined;
 }
 
 console.log(checkIfPropertyIsDefined(firstUser, 'firstName')); // true
@@ -66,8 +66,8 @@ const user = {
     name: 'John'
 }
 
-function removeProperty(holder, property) {
-    return holder[property] !==undefined && delete user.name;
+function removeProperty(object, property) {
+    return object[property] !== undefined && delete object[property];
 }
 
 console.log(removeProperty(user, 'name')); // true
@@ -110,20 +110,20 @@ const votes = {
 }
 */
 
-function getVoteCount({upvotes, downvotes}) {
-    return upvotes - downvotes;
+function getVoteCount(votes) {
+    return votes.upvotes - votes.downvotes;
 }
 
 console.log(getVoteCount({ upvotes: 10, downvotes: 5 })); // 5
 console.log(getVoteCount({ upvotes: 75, downvotes: 90 })); // -15
-console.log(getVoteCount({ upvotes: 50, downvotes: 50 })); // 0+
+console.log(getVoteCount({ upvotes: 50, downvotes: 50 })); // 0
 
 /* #7
 Write the getCubeVolume function
 */
 
-function getCubeVolume({width, length, height}) {
-    return width * length * height;
+function getCubeVolume(cubeObject) {
+    return cubeObject.width * cubeObject.length * cubeObject.height;
 }
 
 console.log(getCubeVolume({ width: 10, length: 5, height: 2 })); // 100
@@ -140,9 +140,35 @@ const cityInformation = {
     areaInKilometers: 517,
 }
 
-function getCityInformation(cityName, countryName, territory) {
-    return `${cityInformation.name} is in ${cityInformation.country} and has an area of ${cityInformation.areaInKilometers} square kilometers.`;
+function getCityInformation(cityObject) {
+    return `${cityObject.name} is in ${cityObject.country} and has an area of ${cityObject.areaInKilometers} square kilometers.`;
 }
+
+const cityDescription = getCityInformation(cityInformation);
+
+console.log(cityDescription);
+
+/* #9
+Write the getUserCopy function. Assume that users only have the firstName and lastName.
+ */
+
+const john = {
+    firstName: 'John',
+    lastName: 'Smith'
+}
+
+function getUserCopy(copyUserObject) {
+    return {
+        firstName: copyUserObject.firstName,
+        lastName: copyUserObject.lastName
+    };
+}
+
+const newUser = getUserCopy(john);
+
+console.log(newUser.firstName); // John
+console.log(newUser.lastName); // Smith
+console.log(newUser === john); // false <-- this is crucial
 
 /* #10 https://www.codewars.com/kata/56d8ae9237123036d3001b54
 While making a zork-type game, you create an object of rooms.
