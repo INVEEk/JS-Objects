@@ -157,10 +157,10 @@ const john = {
     lastName: 'Smith'
 }
 
-function getUserCopy(copyUserObject) {
+function getUserCopy(sourceUserObject) {
     return {
-        firstName: copyUserObject.firstName,
-        lastName: copyUserObject.lastName
+        firstName: sourceUserObject.firstName,
+        lastName: sourceUserObject.lastName
     };
 }
 
@@ -170,7 +170,30 @@ console.log(newUser.firstName); // John
 console.log(newUser.lastName); // Smith
 console.log(newUser === john); // false <-- this is crucial
 
-/* #10 https://www.codewars.com/kata/56d8ae9237123036d3001b54
+/* #10 https://www.codewars.com/kata/571f1eb77e8954a812000837/train/javascript
+Give you a function animal, accept 1 parameter:obj like this:
+
+{name:"dog",legs:4,color:"white"}
+and return a string like this:
+
+"This white dog has 4 legs."
+ */
+
+const animalDog = {
+    name: "dog",
+    legs: 4,
+    color: "white"
+}
+
+function animal(petObject) {
+    return `This ${petObject.color} ${petObject.name} has ${petObject.legs} legs.`
+}
+
+const minionDescription = animal(animalDog);
+
+console.log(minionDescription);
+
+/* #11 https://www.codewars.com/kata/56d8ae9237123036d3001b54
 While making a zork-type game, you create an object of rooms.
 Unfortunately, the game is not working.
 Find all the errors in the rooms object to get your game working again.
@@ -208,3 +231,84 @@ const rooms = {
         }
     }
 }
+
+/* #11
+Write the addContact function that returns a new contacts object with an additional property.
+The new property should contain an object with the name and phoneNumber properties.
+Make sure not to modify the contacts provided as an argument to the addContact function.
+ */
+
+/* #12
+Write the findContact function that returns a string representing the contact with a given name. If a contact with a given name does not exist, return undefined.
+ */
+/*
+const contacts = {};
+const contactsWithJohn = addContact(contacts, 'John', '123 456 789');
+
+console.log(contactsWithJohn.John.name); // "John"
+console.log(contactsWithJohn.John.phoneNumber); // '123 456 789'
+
+console.log(contacts === contactsWithJohn); // false
+console.log(contacts.John); // undefined
+
+const johnContactInfo = findContact(contactsWithJohn, 'John');
+console.log(johnContactInfo); // "Name: John, Phone: 123 456 789"
+*/
+/* #13
+Create validateIfObjectIsAUser function.
+that takes an object as an argument and returns true if the object meets the following requirements:
+
+ 1. has firstName property with a value of a string type
+
+ 2. has lastName property with a value of a string type
+
+ 3. has age property with a value of a number type
+
+ 4. has a greet property with a value of a function type and the function returns a string containing the user firstName and the user lastName
+ */
+
+const user = {
+    firstName: 'Bob',
+    lastName: 'Ross',
+    age: 40,
+    greet() {
+        return "Hi, I'm Bob Ross!";
+    }
+}
+const objectExample = {
+    firstName: 'Kate',
+    lastName: 'Williams',
+    age: 40,
+    greet() {
+        return "Hi, I'm Kate!";
+    }
+}
+const car = {
+    make: 'Ferrari',
+    model: 'F40',
+    greet() {
+        return "<engine noise>";
+    }
+}
+
+function validateIfObjectIsAUser(validatedObject) {
+    if (typeof validatedObject.firstName === "string") {
+        return true;
+    }
+    if (typeof validatedObject.lastName === "string") {
+        return true;
+    }
+    if (typeof validatedObject.age === "number") {
+        return true;
+    }
+    if (validatedObject.greet === "function" && function greet() {
+        return `Hi, I'm ${validatedObject.firstName} ${validatedObject.lastName}`})
+    {
+        return true;
+    }
+    return false;
+}
+
+console.log(validateIfObjectIsAUser(user)); // true
+console.log(validateIfObjectIsAUser(objectExample)); // false
+console.log(validateIfObjectIsAUser(car)); // false
