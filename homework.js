@@ -13,8 +13,6 @@ function checkIfPropertyIsDefined(object, property) {
     return user.hasOwnProperty(property);
 }
 
-
-
 console.log(checkIfPropertyIsDefined(user, 'firstName')); // true
 console.log(checkIfPropertyIsDefined(user, 'height')); // false
 
@@ -185,7 +183,7 @@ function getCityInformation() {
 
 console.log(getCityInformation());
 
-/* #8
+/* #9
 Write the getUserCopy function. Assume that users only have the firstName and lastName.
  */
 const john = {
@@ -199,7 +197,7 @@ console.log(newUser.firstName); // John
 console.log(newUser.lastName); // Smith
 console.log(newUser === john); // false <-- this is crucial
 
-/* #9 https://www.codewars.com/kata/571f1eb77e8954a812000837/train/javascript
+/* #10 https://www.codewars.com/kata/571f1eb77e8954a812000837/train/javascript
 Give you a function animal, accept 1 parameter:obj like this:
 
 {name:"dog",legs:4,color:"white"}
