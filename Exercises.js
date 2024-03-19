@@ -254,6 +254,32 @@ console.log(contacts.John); // undefined
 const johnContactInfo = findContact(contactsWithJohn, 'John');
 console.log(johnContactInfo); // "Name: John, Phone: 123 456 789"
 */
+
+//Write the addContact function that returns a new contacts object with an additional property.
+// Empty contacts object
+
+const contacts = {};
+
+function addContact(contactObject, contactName, contactPhone) {
+    return {
+        contactObject: {
+            name: contactName,
+            phoneNumber: contactPhone
+        }
+    }
+}
+
+const contactsWithJohn = addContact(contacts, 'John', '123 456 789');
+
+console.log(contacts);  // {}
+console.log(contactsWithJohn); // Object {name: "John", phoneNumber: "123 456 789"}
+
+console.log(contactsWithJohn.John.name); // "John"
+console.log(contactsWithJohn.John.phoneNumber); // '123 456 789'
+
+console.log(contacts === contactsWithJohn); // false
+console.log(contacts.John); // undefined
+
 /* #13
 Create validateIfObjectIsAUser function.
 that takes an object as an argument and returns true if the object meets the following requirements:
@@ -312,3 +338,15 @@ function validateIfObjectIsAUser(validatedObject) {
 console.log(validateIfObjectIsAUser(user)); // true
 console.log(validateIfObjectIsAUser(objectExample)); // false
 console.log(validateIfObjectIsAUser(car)); // false
+
+const contactsWithJohn = {
+    John: {
+        name: "John",
+        phoneNumber: 123456789
+    }
+};
+
+
+
+console.log(contactsWithJohn.John.name); // "John"
+console.log(contactsWithJohn.John.phoneNumber); // '123 456 789'
